@@ -29,17 +29,6 @@ public class MaguroSpawner : MonoBehaviour, IMaguroProvider
     }
     SpawnState spawnState;
 
-    public static MaguroSpawner Instance;
-
-    void Awake()
-    {
-        if(Instance!=null&&Instance!=this){
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
-
     void Start()
     {
         for(int i = 0; i < firstSpawnCount; i++)
@@ -89,8 +78,8 @@ public class MaguroSpawner : MonoBehaviour, IMaguroProvider
     private Vector3 GetSpawnOffset()
     {
         Vector3 rtv = Vector3.zero;
-        rtv.x += Random.Range(0, spawnOffset);
-        rtv.z += Random.Range(0, spawnOffset);
+        rtv.x += Random.Range(-spawnOffset, spawnOffset);
+        rtv.z += Random.Range(-spawnOffset, spawnOffset);
 
         return rtv;
     }
