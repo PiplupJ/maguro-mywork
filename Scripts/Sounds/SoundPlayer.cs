@@ -3,9 +3,11 @@ using System.Collections.Generic;
 
 public enum SoundType
 {
+    None = 99,
     TitleBGM = 0,
     GameBGM = 1,
     EndingBGM = 2,
+    FeverBGM = 3,
 
     SelectSE = 10,
     HoverSE = 11,
@@ -14,6 +16,7 @@ public enum SoundType
     EatSE = 22,
     ExplodeSE = 23,
     KnockOutSE = 24,
+    WarningSE = 25,
 
     ApplauseSE = 31,
     AwardEntrySE = 32
@@ -75,6 +78,11 @@ public class SoundPlayer : MonoBehaviour
         bgmSource.clip = s.clip;
         bgmSource.Play();
 
+    }
+    //BGM速度を設定
+    public void SetSpeedBGM(float speed)
+    {
+        bgmSource.pitch = speed;
     }
     //BGMの停止
     public void StopBGM()
